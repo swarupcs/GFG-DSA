@@ -51,29 +51,29 @@ Input: A 2D boolean array arr of size m x n, where each row is sorted and contai
 Output: The index of the row with the maximum number of 1s. If no such row exists, return -1.
 ```
 #### Key Points:
-```
+
 Approach and Algorithm
-Initialize Variables:
+1. **Initialize Variables**:
 
-m: Number of rows in the array.
-n: Number of columns in the array.
-maxOneCount: Keeps track of the highest number of 1s found in any row.
-maxOneRow: Keeps track of the index of the row with the highest number of 1s.
-Iterate Through Each Row:
+* **m**: Number of rows in the array.
+* **n**: Number of columns in the array.
+* **maxOneCount**: Keeps track of the highest number of 1s found in any row.
+* **maxOneRow**: Keeps track of the index of the row with the highest number of 1s.
+2. **Iterate Through Each Row**:
 
-For each row i (from 0 to m-1):
-Initialize a counter oneCount to count the number of 1s in the current row.
-Iterate through each column j (from 0 to n-1):
-If arr[i][j] == 1, increment the oneCount.
-Update Maximum Count and Row Index:
+* For each row i (from 0 to m-1):
+    * Initialize a counter oneCount to count the number of 1s in the current row.
+    * Iterate through each column j (from 0 to n-1):
+        * If arr[i][j] == 1, increment the oneCount.
+3. **Update Maximum Count and Row Index**:
 
-After counting 1s in the current row, check if oneCount is greater than maxOneCount.
-If true, update maxOneCount to oneCount and maxOneRow to the current row index i.
-Return Result:
+* After counting 1s in the current row, check if oneCount is greater than maxOneCount.
+* If true, update maxOneCount to oneCount and maxOneRow to the current row index i.
+4. **Return Result**:
 
-After completing the iteration through all rows, return maxOneRow, which is the index of the row with the maximum number of 1s.
+* After completing the iteration through all rows, return maxOneRow, which is the index of the row with the maximum number of 1s.
 
-```
+
 
 * **Java**
 
