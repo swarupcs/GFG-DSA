@@ -1,8 +1,7 @@
 ## Prime List
 
 
-https://leetcode.com/problems/trapping-rain-water/
-
+https://www.geeksforgeeks.org/problems/prime-list--170646/1
 <div class="problems_problem_content__Xm_eO"><p><span style="font-size: 14pt;">You are given the head of a linked list. You have to replace all the values of the nodes with the nearest <strong>prime</strong> number. If more than one prime number exists at an equal distance, choose the <strong>smallest</strong> one. Return the <strong>head</strong> of the modified linked list.</span></p>
 <p><span style="font-size: 14pt;"><strong>Examples :</strong></span></p>
 <pre><span style="font-size: 14pt;"><strong>Input: </strong>head =<strong> </strong>2 → 6 → 10
