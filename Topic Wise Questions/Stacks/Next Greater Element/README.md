@@ -64,36 +64,102 @@ Explanation: For a reverse sorted array, the next greater element is always 1.
 
 * **Java**
 
-```
-class Solution {
-    // Function to find the next greater element for each element of the array.
-    public static long[] nextLargerElement(long[] arr, int n) {
-        long[] result = new long[n];
-        Stack<Long> stack = new Stack<>();
 
-        // Initialize the result array with -1 (default value when no greater element is found)
-        Arrays.fill(result, -1);
+---
+
+### ✅ **Intuition**
+
+We want to find for each element the **nearest greater element to its right**. Using a stack helps efficiently track candidates for NGE while traversing from right to left.
+
+---
+
+### ✅ **Algorithm Steps**
+
+1. Create a result array `ans[]` of size `n` to store next greater elements.
+2. Use a stack to keep elements in **monotonic decreasing order**.
+3. Traverse from **right to left**:
+
+   * While the stack is not empty and top of stack ≤ current element, pop the stack.
+   * If stack is empty, no greater element → put `-1`.
+   * Else, top of stack is the NGE → store it in `ans[i]`.
+   * Push the current element onto the stack.
+4. Return the result array.
+
+---
+
+### ✅ **Code with Line-by-Line Explanation**
+
+```java
+import java.util.*;
+
+class Solution {
+
+    // Function to find the next greater element for each element
+    public ArrayList<Integer> nextLargerElement(int[] arr) {
+        int n = arr.length; // Size of input array
+
+        // Array to store next greater elements
+        int[] ans = new int[n];
+
+        // Stack to store the potential next greater elements
+        Stack<Integer> st = new Stack<>();
 
         // Traverse the array from right to left
         for (int i = n - 1; i >= 0; i--) {
-            // Pop elements from the stack while stack is not empty and top of stack is less than or equal to arr[i]
-            while (!stack.isEmpty() && stack.peek() <= arr[i]) {
-                stack.pop();
+            int currEle = arr[i]; // Current element
+
+            // Pop smaller or equal elements from stack
+            while (!st.isEmpty() && st.peek() <= currEle) {
+                st.pop(); // Not greater, discard
             }
 
-            // If stack is not empty, the top of the stack is the next greater element
-            if (!stack.isEmpty()) {
-                result[i] = stack.peek();
+            // If stack is empty → no next greater element
+            if (st.isEmpty()) {
+                ans[i] = -1;
+            } else {
+                // Top of stack is next greater element
+                ans[i] = st.peek();
             }
 
-            // Push the current element onto the stack
-            stack.push(arr[i]);
+            // Push current element onto stack for next iteration
+            st.push(currEle);
         }
 
-        return result;
+        // Convert the result array to ArrayList to match method signature
+        ArrayList<Integer> result = new ArrayList<>();
+        for (int val : ans) {
+            result.add(val);
+        }
+
+        return result; // Final result
     }
 }
 ```
+
+---
+
+### ✅ **Dry Run Example**
+
+**Input:** `arr = [1, 3, 2, 4]`
+
+**Steps:**
+
+* Start from right → `4`: no greater → `-1`
+* `2`: next greater is `4`
+* `3`: next greater is `4`
+* `1`: next greater is `3`
+
+**Output:** `[3, 4, 4, -1]`
+
+---
+
+### ✅ **Time and Space Complexity**
+
+* **Time:** `O(n)` → each element is pushed and popped once
+* **Space:** `O(n)` → for the stack and result array
+
+---
+
 
 
 
