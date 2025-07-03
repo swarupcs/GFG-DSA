@@ -1,7 +1,7 @@
 ## Three Sum
 
 
-https://leetcode.com/problems/trapping-rain-water/
+https://www.geeksforgeeks.org/problems/three-sum/1
 
 <div class="problems_problem_content__Xm_eO"><p><span style="font-size: 14pt;">Given an integer array <strong>arr</strong>, return all the <strong>unique </strong>triplets [arr[i], arr[j], arr[k]] such that<strong> i != j, i != k, and j != k, </strong>and <strong>arr[i] + arr[j] + arr[k] == 0.</strong></span></p>
 <p><span style="font-size: 14pt;">Note: The triplets must be returned in <strong>sorted </strong>order, the solution vector should also be <strong>sorted</strong>, and the answer must not contain any <strong>duplicate </strong>triplets.</span></p>
